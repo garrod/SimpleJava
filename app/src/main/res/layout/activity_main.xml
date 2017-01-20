@@ -16,30 +16,28 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <EditText
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="9"
-            android:text="Testowe pole"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:text="Send"/>
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:text="Ile pączków masz ochote zjeść !!! "/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="50dp"
+        android:paddingTop="20dp"
         android:orientation="vertical">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:src="@drawable/woho"/>
+            android:src="@drawable/woho"
+            android:id="@+id/order_image"
+            />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -60,7 +58,7 @@
                 android:textAlignment="center"
                 android:layout_marginTop="6dp"
                 android:text="0"
-                android:id="@+id/coffie_number"/>
+                android:id="@+id/donuts_number"/>
 
             <Button
                 android:layout_width="48dp"
@@ -69,5 +67,40 @@
                 android:onClick="decrement"/>
 
         </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Podsumowanie zamówienia : "
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:paddingTop="10dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Pączki : 0 "
+            android:paddingTop="10dp"
+            android:textSize="20dp"
+            android:id="@+id/text_donuts"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Cena : 0 zł "
+            android:textSize="20dp"
+            android:id="@+id/text_price"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Zamów"
+            android:paddingTop="10dp"
+            android:onClick="displayOrder"/>
     </LinearLayout>
 </RelativeLayout>

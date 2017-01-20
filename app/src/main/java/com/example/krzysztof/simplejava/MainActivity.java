@@ -1,16 +1,17 @@
 package com.example.krzysztof.simplejava;
 
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView textView;
-    private int startValue = 0;
+    private TextView donuts_number;
+    private TextView donuts_order;
+    private TextView donuts_price;
+    private int donuts_order_value = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,20 +27,33 @@ public class MainActivity extends AppCompatActivity {
 //        setContentView(textView);
 
         setContentView(R.layout.activity_main);
-        textView = (TextView) findViewById(R.id.coffie_number);
+        donuts_number = (TextView) findViewById(R.id.donuts_number);
+        donuts_order = (TextView) findViewById(R.id.text_donuts);
+        donuts_price = (TextView) findViewById(R.id.text_price);
     }
 
     private void displayValue(String val) {
-        textView.setText(val);
+        donuts_number.setText(val);
+    }
+
+    public void displayOrder(View view) {
+        donuts_order.setText("Pączki : " + donuts_order_value);
+        int price = donuts_order_value * 5;
+        donuts_price.setText("Cena : " + price + " zł");
+
+        ImageView img = (ImageView) findViewById(R.id.order_image);
+        img.setImageResource(R.drawable.donut);
     }
 
     public void increment(View view) {
-        startValue = startValue+1;
-        displayValue(startValue+"");
+        donuts_order_value = donuts_order_value +1;
+        displayValue(donuts_order_value +"");
     }
 
     public void decrement(View view) {
-        startValue = startValue-1;
-        displayValue(startValue+"");
+        if(donuts_order_value >0) {
+            donuts_order_value = donuts_order_value - 1;
+            displayValue(donuts_order_value + "");
+        }
     }
 }

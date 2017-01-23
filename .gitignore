@@ -41,3 +41,16 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+SimpleJava.iml
+.gradle/2.14.1/taskArtifacts/
+.gradle/2.14.1/tasks/
+.idea/compiler.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/runConfigurations.xml
+.idea/vcs.xml
+.idea/copyright/profiles_settings.xml
+app/app.iml
+app/build/
+build/generated/mockable-android-24.jar
+build/intermediates/dex-cache/cache.xml

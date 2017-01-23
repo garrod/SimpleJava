@@ -3,15 +3,18 @@ package com.example.krzysztof.simplejava;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView donuts_number;
-    private TextView donuts_order;
-    private TextView donuts_price;
-    private int donuts_order_value = 0;
+    private TextView donutsNumber;
+    private TextView donutsOrder;
+    private TextView donutsPrice;
+    private CheckBox takeawayPackage;
+    private int donutsOrderValue = 0;
+    private final static int TAKEAWAY_PACKAGE_PRICE = 12;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,33 +30,39 @@ public class MainActivity extends AppCompatActivity {
 //        setContentView(textView);
 
         setContentView(R.layout.activity_main);
-        donuts_number = (TextView) findViewById(R.id.donuts_number);
-        donuts_order = (TextView) findViewById(R.id.text_donuts);
-        donuts_price = (TextView) findViewById(R.id.text_price);
+        donutsNumber = (TextView) findViewById(R.id.donuts_number);
+        donutsOrder = (TextView) findViewById(R.id.text_donuts);
+        donutsPrice = (TextView) findViewById(R.id.text_price);
+        takeawayPackage = (CheckBox) findViewById(R.id.box);
     }
 
     private void displayValue(String val) {
-        donuts_number.setText(val);
+        donutsNumber.setText(val);
     }
 
     public void displayOrder(View view) {
-        donuts_order.setText("Pączki : " + donuts_order_value);
-        int price = donuts_order_value * 5;
-        donuts_price.setText("Cena : " + price + " zł");
+        donutsOrder.setText("Pączki : " + donutsOrderValue);
+        int price = donutsOrderValue * 5;
+
+        if(takeawayPackage.isChecked()) {
+            price += TAKEAWAY_PACKAGE_PRICE;
+        }
+
+        donutsPrice.setText("Cena : " + price + " zł");
 
         ImageView img = (ImageView) findViewById(R.id.order_image);
         img.setImageResource(R.drawable.donut);
     }
 
     public void increment(View view) {
-        donuts_order_value = donuts_order_value +1;
-        displayValue(donuts_order_value +"");
+        donutsOrderValue = donutsOrderValue +1;
+        displayValue(donutsOrderValue +"");
     }
 
     public void decrement(View view) {
-        if(donuts_order_value >0) {
-            donuts_order_value = donuts_order_value - 1;
-            displayValue(donuts_order_value + "");
+        if(donutsOrderValue >0) {
+            donutsOrderValue = donutsOrderValue - 1;
+            displayValue(donutsOrderValue + "");
         }
     }
 }
